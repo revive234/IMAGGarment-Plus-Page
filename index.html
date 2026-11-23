@@ -1,20 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMAGGarment+</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="IMAGGarment+: Efficient Attribute-Wise Diffusion for Garment Generation, AAAI 2026.">
+  <title>IMAGGarment+ | AAAI 2026</title>
+  <style>
+    :root { color-scheme: light; font-family: Arial, Helvetica, sans-serif; }
+    body { margin: 0; color: #24313d; background: #fff; line-height: 1.65; }
+    main { max-width: 960px; margin: auto; padding: 48px 24px 80px; }
+    header { text-align: center; }
+    h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.2; margin: 0 0 18px; }
+    h2 { margin-top: 48px; border-bottom: 1px solid #dce3e8; padding-bottom: 8px; }
+    .authors, .affiliations { margin: 12px 0; }
+    .links { margin: 26px 0 36px; }
+    .links a { display: inline-block; margin: 4px; padding: 8px 18px; border-radius: 24px; background: #263746; color: white; text-decoration: none; }
+    .placeholder { border: 2px dashed #a8b7c3; border-radius: 12px; background: #f5f8fa; color: #60717f; min-height: 210px; display: grid; place-items: center; text-align: center; padding: 20px; }
+    .caption { text-align: center; color: #60717f; font-size: 0.95rem; }
+    pre { overflow-x: auto; background: #f5f8fa; padding: 18px; border-radius: 8px; }
+    a { color: #17659c; }
+  </style>
 </head>
 <body>
-    <h1>IMAGGarment+</h1>
-    <p>Official Project Page</p>
+  <main>
+    <header>
+      <h1>IMAGGarment+: Efficient Attribute-Wise Diffusion for Garment Generation</h1>
+      <p class="authors">Jian Yu<sup>1*</sup>, Fei Shen<sup>2*</sup>, Cong Wang<sup>3</sup>, Yanpeng Sun<sup>2</sup>, Hao Tang<sup>4</sup>, Qin Guo<sup>5</sup>, Xiaoyu Du<sup>1</sup></p>
+      <p class="affiliations"><sup>1</sup>Nanjing University of Science and Technology · <sup>2</sup>National University of Singapore · <sup>3</sup>Nanjing University<br><sup>4</sup>The Hong Kong Polytechnic University · <sup>5</sup>The Hong Kong University of Science and Technology</p>
+      <p>AAAI 2026 · * Equal contribution</p>
+      <nav class="links" aria-label="Publication links">
+        <a href="https://ojs.aaai.org/index.php/AAAI/article/download/38203/42165">Paper</a>
+        <a href="https://github.com/revive234/IMAGGarment-Plus">Code</a>
+      </nav>
+    </header>
 
-    <a href="https://github.com/revive234/IMAGGarment-Plus">
-        Code
-    </a>
+    <section aria-labelledby="abstract">
+      <h2 id="abstract">Abstract</h2>
+      <p>IMAGGarment+ is a controllable garment generation framework built on <a href="https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0">Stable Diffusion XL</a>. Given a silhouette sketch, logo, color hint, and spatial mask, it generates a garment image while preserving the requested structure and visual details. Its attribute-wise feature extractor uses LoRA to learn separate representations for the conditions, and its attribute-adaptive attention injects those representations into suitable layers of the denoising UNet. This design combines fine-grained control with parameter-efficient training.</p>
+    </section>
 
-    <a href="https://huggingface.co/keimen/IMAGGarment-Plus">
-        Model
-    </a>
+    <section aria-labelledby="method">
+      <h2 id="method">Method</h2>
+      <div class="placeholder" role="img" aria-label="Framework image placeholder">Framework image placeholder</div>
+      <p class="caption">Overview of the IMAGGarment+ architecture. Image to be added.</p>
+      <p>The attribute-wise feature extractor encodes the sketch, logo, and color hint in parallel feature streams; the mask refines the structural input for placement control. Attribute-adaptive attention then injects silhouette features into the first decoder layer, color features into the second, and logo features across layers to maintain detail consistency.</p>
+    </section>
+
+    <section aria-labelledby="results">
+      <h2 id="results">Results</h2>
+      <div class="placeholder" role="img" aria-label="Garment examples image placeholder">Garment examples image placeholder</div>
+      <p class="caption">Garment generation examples. Image to be added.</p>
+      <p>The paper reports improved controllability and image quality over the compared methods on garment benchmarks, with fewer than 20% additional parameters relative to the SDXL backbone. See the paper for the evaluation protocol and quantitative results.</p>
+    </section>
+
+    <section aria-labelledby="citation">
+      <h2 id="citation">Citation</h2>
+      <pre><code>@inproceedings{yu2026imaggarmentplus,
+  title     = {IMAGGarment+: Efficient Attribute-Wise Diffusion for Garment Generation},
+  author    = {Yu, Jian and Shen, Fei and Wang, Cong and Sun, Yanpeng and Tang, Hao and Guo, Qin and Du, Xiaoyu},
+  booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume    = {40},
+  number    = {14},
+  pages     = {12135--12143},
+  year      = {2026},
+  doi       = {10.1609/aaai.v40i14.38203}
+}</code></pre>
+    </section>
+  </main>
 </body>
 </html>
