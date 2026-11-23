@@ -184,7 +184,7 @@ Extensive experiments on fine-grained garment benchmarks demonstrate that IMAGGa
                     <div class="image-placeholder" role="img" aria-label="Framework image placeholder" src="./static/images/framework.jpg">Framework image placeholder</div>
                 </div>
                 <div class="content has-text-justified">
-                <p>The attribute-wise feature encoder learns separate representations for the garment conditions using LoRA. Attribute-adaptive attention then injects silhouette and hint features into the first and second decoder layers, while logo features guide detail preservation across the denoising process.</p>
+                <p>To ensure faithful attribute control and high-fidelity synthesis, our framework consists of two key components: the attribute-wise feature extractor (AFE) and the attribute-adaptive attention (AA) module. The AFE module disentangles multiple visual attributes and encodes them into parallel latent streams. These streams are adapted using LoRA to maintain fine-grained expressiveness with minimal parameter overhead. The resulting features are injected into the Denoising UNet through the AA module, which aligns attribute semantics with decoder layers via a selective injection mechanism. Specifically, features corresponding to silhouette and color are injected into early decoder layers to guide structural layout and chromatic distribution, while logo features are propagated across all layers to preserve fine-grained consistency. This design forms the basis of our layer-wise injection strategy, which ensures effective cross-attribute coordination while preserving computational efficiency.</p>
                 </div>
                 
         </div>
