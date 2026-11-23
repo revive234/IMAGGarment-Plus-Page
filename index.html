@@ -143,7 +143,11 @@
           <h2 class="title is-3">Abstract</h2>
 
           <div class="content has-text-justified">
-            <p>This paper presents IMAGGarment+, an efficient attribute-wise diffusion framework for controllable garment generation. Built on <a href="https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0">Stable Diffusion XL</a>, it uses an attribute-wise feature encoder to represent silhouette, logo, and color hints, and attribute-adaptive attention to inject those features into the denoising UNet. The framework generates garments with fine-grained control while training a small set of additional parameters.</p>
+            <p>Diffusion models have advanced fine-grained garment generation, yet balancing controllability, efficiency, and texture fidelity remains challenging. Adapter-based methods often yield incoherent details, while full fine-tuning is computationally expensive and prone to overwriting pretrained priors.
+To address these limitations, we propose IMAGGarment+, an efficient diffusion framework for controllable and high-quality garment synthesis. It comprises two key modules designed for efficient and attribute-aware conditioning.
+First, we introduce an attribute-wise feature extractor (AFE) that disentangles key garment attributes, silhouette, logo, position, and color, into parallel latent streams. Each stream is optimized independently via LoRA, ensuring minimal parameter overhead while retaining expressive capacity.
+Second, we develop an attribute-adaptive attention (AA) module to inject attribute-specific cues into the generative process through a selective, layer-wise injection strategy. Specifically, silhouette and color features are injected into early decoder layers to guide structural and appearance formation, while logo features are propagated across all layers to ensure cross-scale consistency.
+Extensive experiments on fine-grained garment benchmarks demonstrate that IMAGGarment+ outperforms state-of-the-art baselines with less than 20% additional parameters, validating its effectiveness and efficiency.</p>
           </div>
         </div>
       </div>
@@ -157,10 +161,10 @@
             
             <div class="columns is-centered has-text-centered">
                 <div class="column is-four-fifths">
-                    <h2 class="title is-3">Motivation</h2>
+                    <h2 class="title is-3">Preliminary Experiment</h2>
                     
                     <div class="container is-max-desktop">
-                        <div class="image-placeholder" role="img" aria-label="Motivation image placeholder">Motivation image placeholder</div>
+                        <div class="image-placeholder" role="img" aria-label="Motivation image placeholder" src="./static/images/IPA_guess.jpg">Motivation image placeholder</div>
                     </div>
                 </div>
             </div>
@@ -177,7 +181,7 @@
             <div class="column is-four-fifths">
                 <h2 class="title is-3">Method</h2>
                 <div class="container is-max-desktop">
-                    <div class="image-placeholder" role="img" aria-label="Framework image placeholder">Framework image placeholder</div>
+                    <div class="image-placeholder" role="img" aria-label="Framework image placeholder" src="./static/images/framework.jpg">Framework image placeholder</div>
                 </div>
                 <div class="content has-text-justified">
                 <p>The attribute-wise feature encoder learns separate representations for the garment conditions using LoRA. Attribute-adaptive attention then injects silhouette and hint features into the first and second decoder layers, while logo features guide detail preservation across the denoising process.</p>
@@ -193,17 +197,15 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-3">Example</h2>
+          <h2 class="title is-3">Results</h2>
 
           <div class="container is-max-desktop">
-            <div class="image-placeholder" role="img" aria-label="Garment examples image placeholder">Garment examples image placeholder</div>
+            <div class="image-placeholder" role="img" aria-label="Garment examples image placeholder" src="./static/images/comparsion.jpg">Garment examples image placeholder</div>
           </div>
 
           <br>
 
-          <div class="container is-max-desktop">
-            <div class="image-placeholder" role="img" aria-label="Additional garment examples image placeholder">Additional garment examples image placeholder</div>
-          </div>
+          
         </div>
       </div>
     </div>
@@ -213,15 +215,6 @@
       
     <section class="section">
         <div class="container is-max-desktop">
-            <h2 class="title is-3">GarmentBench Dataset Demo</h2>
-            
-            <div class="image-placeholder" role="img" aria-label="GarmentBench dataset image placeholder">GarmentBench dataset image placeholder</div>
-  
-            <div class="content has-text-justified">
-                <h3 class="title is-4">GarmentBench Dataset</h3>
-                <p>
-                    GarmentBench contains garment images with descriptions, sketches, colors, logos, and placement information. 
-                </p>
   
   
   
